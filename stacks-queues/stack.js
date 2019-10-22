@@ -3,11 +3,11 @@ class Stack {
     this.storage = '';
   }
   push(val) {
-    this.storage = this.storage + "&" + val;
+    this.storage = this.storage.concat("&" + val);
   }
   pop() {
     const splitIndex = this.storage.lastIndexOf("&")
-    const popOutput = this.storage.substring(splitIndex + 1, this.storage.length)
+    const popOutput = this.storage.slice(splitIndex + 1)
     this.storage = this.storage.substring(0, splitIndex)
     return popOutput;
   }
